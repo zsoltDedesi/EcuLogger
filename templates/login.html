@@ -1,0 +1,59 @@
+{% extends "template.html" %} 
+{% block title %} Login {% endblock %} {% block
+body %}
+
+<div>
+  <h1 style="text-align: center; margin: 5rem">Login</h1>
+</div>
+
+
+{% with messages = get_flashed_messages() %}
+
+  {% if messages %}
+    <ul>
+
+      {% for message in messages %}
+        <li> {{message}} </li>
+      {% endfor %}
+        <li id="countdown"></li>
+    </ul>
+      
+    {% endif %}
+{% endwith %}
+
+
+
+<div class="reg-field">
+  <form method="POST">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        id="login-username"
+        name="login-username"
+        aria-describedby="usernameHelp"
+        placeholder="Username"
+    
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        class="form-control"
+        name="login-password"
+        id="login-password"
+        placeholder="Password"
+      />
+    </div>
+
+    <div class="login-btn">
+      <button id="login-btn2" type="submit" class="btn btn-primary">Login</button>
+
+      <a href="/"
+        ><button type="button" class="btn btn-primary">Home</button></a
+      >
+    </div>
+  </form>
+</div>
+
+{% endblock %}

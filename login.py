@@ -1,19 +1,10 @@
+import main
+
+
 from flask import Flask, render_template, request, flash
 from flask import session
 
 app = Flask(__name__)
-
-
-
-
-@app.route('/')
-@app.route('/homapage')
-def index():
-
-    user_id = session.get('username')
-    loged_in = auth.user_loged_in(user_id)
-
-    return render_template("main.html")
 
 
 
@@ -127,6 +118,3 @@ def logout():
 
     del session['username']
     return render_template('logout.html')
-
-if __name__ == '__main__':
-    app.run(debug=True, port=8000)
