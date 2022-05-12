@@ -137,10 +137,13 @@ def get_data():
 
     if request.method=='POST':
         
+        test_file = request.json
 
+        print(test_file)
         print(f"get data from OBD, counter ")
-        return "", 200
+        # print(request.json)
     
+        return "", 200
     
 
 if __name__ == '__main__':
