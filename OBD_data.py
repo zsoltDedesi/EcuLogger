@@ -17,11 +17,14 @@ def send_data(url, data):
 
     # files = {'json': (None, json.dumps(data), 'application/json')}
 
-
     server_response = requests.post(url, json=data, timeout=30)
 
     print(f"Server sended status code: {server_response.status_code}")
-    print(f"Json status: {server_response.json()}")
+    # print(f"Json status: {server_response.json()}")
+
+
+    # TODO --> Still get error message under running
+    # error message : "simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
 
 
 def main():
@@ -41,7 +44,7 @@ def main():
         # send_data(url, json.dumps(json_data), timeout=30, verify=False)
         send_data(url, datas)
 
-        time.sleep(1)
+        # time.sleep(1)
 
 
 if __name__ == '__main__':
