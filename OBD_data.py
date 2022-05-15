@@ -1,33 +1,59 @@
 
+from ast import Try
+from mimetypes import init
 from socket import timeout
 import requests
 import time
 import json
 
-def rpm():
+
+
+
+
+class Car:
+    """ Initial the basic car class """
+    def __init__(self, username: str, brand: str, engine_CC: int, engine_code: str):
+        
+        self.username = username
+        self.brand = brand
+        self.engine_CC = engine_CC
+        self.engine_code = engine_code
+
+        temperature = 0
+        rpm = 0
+
+        # // self 
+        def __str__(self):
+            return f"Username: {self.username}, Brand: {self.brand}, Engine CC: {self.engine_CC}, Engine code: {self.engine_code}"
+
+    def rpm():
+        pass
+
+
+    def temperature():
+        pass
+    
+
+"""DATA CAME FROM THE REAL ENGINE THROE OBD"""
+def collect_data():
     pass
 
 
-def temperature():
-    pass
 
 
 def send_data(url, data):
 
+    try:
 
-    # files = {'json': (None, json.dumps(data), 'application/json')}
+        server_response = requests.post(url, json=data, timeout=30)
+        print(f"Server sended status code: {server_response.status_code}")
 
-    server_response = requests.post(url, json=data, timeout=30)
-
-    print(f"Server sended status code: {server_response.status_code}")
-    # print(f"Json status: {server_response.json()}")
-
-
-    # TODO --> Still get error message under running
-    # error message : "simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+    except:
+        print(f"Server sended status code: {server_response.status_code}")
 
 
-def main():
+
+def main() -> None:
     url = "http://127.0.0.1:8000/OBD_get_data"
 
     datas = {
@@ -35,16 +61,18 @@ def main():
         "temp": 60}
 
 
+    MyOpel = Car("ZsoltD", "Opel Astra", 1.4, "14BZY")
+    print(MyOpel)
 
 
 
 
-    for _ in range(10):
+    while(True):
 
         # send_data(url, json.dumps(json_data), timeout=30, verify=False)
         send_data(url, datas)
 
-        # time.sleep(1)
+        time.sleep(1)
 
 
 if __name__ == '__main__':
