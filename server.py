@@ -7,8 +7,12 @@ import authenticate as auth
 
 
 @app.route('/')
-@app.route('/homapage')
 def index():
+    return redirect('/login')
+
+
+@app.route('/homepage')
+def homapage():
 
     user_id = session.get('username')
     loged_in = auth.user_loged_in(user_id)
@@ -140,7 +144,7 @@ def get_data():
         test_file = request.json
 
         print(test_file)
-        print(f"get data from OBD, counter ")
+        print(f"get data from OBD")
         # print(request.json)
     
         return "", 200

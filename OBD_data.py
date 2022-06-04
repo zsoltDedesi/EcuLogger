@@ -125,21 +125,20 @@ def main() -> None:
     """SETTING THE REQUIRED URL"""
     url = "http://127.0.0.1:8000/OBD_get_data"
     data_man = DataManaging(url_path=url)
-    data_man.send_data()
     # print(data_man)
 
-    count = 0
+    count = 10
 
-    # while(True):
+    while(True):
 
-    #     send_data(url, datas)
-    #     print(f" {count}")
+        data_man.send_data()
+        print(f" {count}")
 
-    #     time.sleep(2)
-    #     count += 1
+        time.sleep(2)
+        count -= 1
 
-    #     if count == 10:
-    #         break
+        if count == 0:
+            break
 
 
 if __name__ == '__main__':
