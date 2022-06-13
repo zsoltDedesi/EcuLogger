@@ -13,7 +13,7 @@ import json
 
 
 
-class Car:
+class UserInfo:
     """ Initial the basic car class """
     def __init__(self, username: str, brand: str, engine_CC: int, fuel: str, engine_code: str):
         
@@ -118,7 +118,7 @@ class DataManaging:
 def main() -> None:
 
     
-    MyOpel = Car(username="ZsoltD", brand="Opel Astra", engine_CC=1.4, fuel="gasoline", engine_code="14BZY")
+    MyOpel = UserInfo(username="ZsoltD", brand="Opel Astra", engine_CC=1.4, fuel="gasoline", engine_code="14BZY")
     MyOpel.to_string()
 
 
